@@ -19,7 +19,8 @@ tags:
 	1. [下载jdk](#下载jdk)
 	2. [手动编辑环境变量配置jdk](#手动编辑环境变量配置jdk)
 	3. [update-alternatives-配置多版本jdk](#update-alternatives-配置多版本jdk)
-	
+2. [参考](#参考)
+
 ---
 
 ## 安装jdk
@@ -53,10 +54,38 @@ java -version
   //查询当前jdk 配置
   sudo update-alternatives --display java
   ```
-  如图![](/assets/display_java.png)
+  ![](/img/display_java.png)
+  我自己装了2个版本
+  ```bash
+  /usr/local/jdk1.7.0_60/bin/java - priority 300
+  /usr/local/jdk1.8.0_91/bin/java - priority 300
+  ```
+  openjdk 系统自己装的。
 
+  发现jdk位置不应该在这里 mv /usr/local/jdk* /usr/bin/ (移动位置)
+  
+  新配置jdk环境
+  首先删除之前jdk 环境配置
+  ```bash
+  sudo update-alternatives --remove java /usr/local/jdk1.8.0_91/bin/java
+  sudo update-alternatives --remove javac /usr/local/jdk1.8.0_91/bin/javac
+  sudo update-alternatives --remove java /usr/local/jdk1.7.0_60/bin/java
+  sudo update-alternatives --remove javac /usr/local/jdk1.7.0_60/bin/javac
+  ```
+  重新配置jdk 到alternatives工具  
+  ```bash
+  sudo update-alternatives --install /usr/bin/java java /usr/bin/jdk1.8.0_91/bin/java 300
+  sudo update-alternatives --install /usr/bin/javac javac /usr/bin/jdk1.8.0_91/bin/javac 300
+  sudo update-alternatives --install /usr/bin/java java /usr/bin/jdk1.7.0_60/bin/java 300
+  sudo update-alternatives --install /usr/bin/javac javac /usr/bin/jdk1.7.0_60/bin/javac 300
+  ```
+  **查看配置结果**
+  ![](/img/jdk_configure.png)
 
-
-
-
-
+  手动切换java javac版本
+  ```shell
+   sudo update-alternatives --config java
+   sudo update-alternatives --config javac
+  ```
+- #### 参考
+   [update-alternatives](https://linux.die.net/man/8/update-alternatives)
