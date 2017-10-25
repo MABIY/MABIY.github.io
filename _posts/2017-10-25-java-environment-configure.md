@@ -30,23 +30,23 @@ tags:
 
 - #### 手动编辑环境变量配置jdk
 
-有3个地方可以配置  
-  /etc/profile  
-  /etc/environment  
-  ~/.bashrc  
-在/etc/environment配置的环境变量:
-
-```bash
-export JAVA_HOME=/usr/local/jdk1.8.0_91
-export CLASSPATH=..:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
-PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/jdk1.8.0_91/bin"
-```
-在ternimal中临时生效，永久生效需要reboot computer
-
-```shell
-source /etc/environment
-java -version
-```
+  有3个地方可以配置  
+    /etc/profile  
+    /etc/environment  
+    ~/.bashrc  
+  在/etc/environment配置的环境变量:
+  
+  ```bash
+  export JAVA_HOME=/usr/local/jdk1.8.0_91
+  export CLASSPATH=..:$JAVA_HOME/lib:$JAVA_HOME/jre/lib
+  PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/local/jdk1.8.0_91/bin"
+  ```
+  在ternimal中临时生效，永久生效需要reboot computer
+  
+  ```shell
+  source /etc/environment
+  java -version
+  ```
 - #### update-alternatives-配置多版本jdk
   首先需要靠update-alternatives工具命令实现，原理是通过生成相应版本的软链接.  
   <br/>    
