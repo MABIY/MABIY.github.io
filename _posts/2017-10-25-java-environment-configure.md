@@ -13,7 +13,7 @@ tags:
 ## 使用ubuntu
 > ubuntu 版本信息:16.04 desktop gnome 3.18.5 
 
-##Catqgory
+## Catqgory
 
 1. [安装jdk](#安装jdk)
 	1. [下载jdk](#下载jdk)
